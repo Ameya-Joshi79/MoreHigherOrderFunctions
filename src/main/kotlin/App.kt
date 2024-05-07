@@ -10,6 +10,46 @@ fun main(args:Array<String>){
         Grocery2("Ice Cream", "Frozen", "Pack", 3.0, 2)
     )
 
+    /*
+       forEach function example. For Each takes a lambda as a Parameter. However, neither the function nor the lambda return anything.
+     */
 
+    /*
+      Loop through each item in the collection and print it's name
+     */
+    groceries2.forEach {
+        println(it.name)
+    }
+
+    /*
+       Chaining calls to use forEach
+     */
+
+    /*
+      Imagine that you want to print the name of each item in groceries whose
+      unitPrice is greater than 3.0.
+     */
+
+    println("print the name of each item in groceries whose\n" +
+            "      unitPrice is greater than 3.0.")
+
+    groceries2.filter {
+        it.unitPrice > 3.0
+    }.forEach {
+        println(it.name)
+    }
+
+    /*
+       Updating variables defined outside the forEach() from within the lambda passed to the forEach. Referred to
+       as the lambda's closure
+     */
+    var itemNames:String = ""
+
+    groceries2.forEach{
+
+        itemNames += "${it.name} - "
+    }
+
+    println(itemNames)
 
 }//main
