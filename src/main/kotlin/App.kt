@@ -80,5 +80,50 @@ fun main(args:Array<String>){
     }
 
 
+/*
+   Using the fold() higher order function
+ */
+    val ints = listOf<Int>(1, 2, 3, 4 ,5)
+
+    val sumOfInts = ints.fold(0){ runningSum, item ->
+        runningSum + item
+    }
+
+    println(sumOfInts)
+
+    /*
+      Get the Product of the above list
+     */
+
+    val productOfInts = ints.fold(1){ productValue, item ->
+        productValue * item
+    }
+
+    println(productOfInts)
+
+    /*
+      Concatenate name of each item in the groceries list
+     */
+
+    val name = groceries2.fold(""){ initialString:String, item:Grocery2 ->
+
+        initialString + "${item.name} "
+
+    }
+
+    println(name)
+
+    /*
+      use fold to work out how much change you’d have left if you
+were to buy all the items in a List<Grocery>.
+     */
+
+    val change = groceries2.fold(50.0){ change:Double, item:Grocery2 ->
+        change - (item.quantity * item.unitPrice)
+    }
+
+
+    println(change)
+
 
 }//main
