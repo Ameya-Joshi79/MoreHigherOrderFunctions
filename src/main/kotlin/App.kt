@@ -52,4 +52,33 @@ fun main(args:Array<String>){
 
     println(itemNames)
 
+
+    /*
+       groupBy Examples
+     */
+
+    /*
+       groupBy() Higher Order function returns a Map<K, List<T>>
+     */
+    val groupByCategory = groceries2.groupBy { it.category }
+
+    println(groupByCategory)
+
+    /*
+        Chaining calls with groupBy()
+     */
+
+    groceries2.groupBy {
+        it.category
+    }.forEach{ it:Map.Entry<String, List<Grocery2>> ->
+        println(it.key)
+
+        it.value.forEach{
+            println("   ${it.name}")
+        }
+
+    }
+
+
+
 }//main
